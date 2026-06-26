@@ -45,3 +45,9 @@
 .clear {
     margin-left: 16px;
 }
+
+.small-button {
+    height: 60px;
+    font-size: 40px;
+    font-family: "SF Pro";
+}
