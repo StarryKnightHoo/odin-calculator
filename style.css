@@ -9,7 +9,7 @@
 .container {
     background-color: rgb(0, 0, 0);
     width: 480px;
-    height: 720px;
+    height: 680px;
     border-radius: 12px;
     padding: 16px;
 }
@@ -36,10 +36,10 @@
     font-size: 40px;
     font-family: "SF Pro";
     background-color: rgb(31, 29, 29);
-    color: rgb(255, 255, 255);
+    color: rgb(227, 70, 70);
     border-radius: 8px;
     margin-top: 16px; 
-    
+    border: none;
 }
 
 .clear {
@@ -47,7 +47,22 @@
 }
 
 .small-button {
-    height: 60px;
+    height: 88px;
+    width: 88px;
     font-size: 40px;
     font-family: "SF Pro";
+    color: white;
+    background-color: rgb(31, 29, 29);
+    border-radius: 50%;
+    margin: 16px;
+    border: none;
+    
+}
+
+.plus, .subtract, .multiply, .divide {
+    color: chocolate;
+}
+
+.equals {
+    color: chartreuse;
 }
