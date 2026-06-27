@@ -4,6 +4,7 @@ let displayOperator = "";
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
 const result = document.querySelector(".result");
+const equals = document.querySelector("equals");
 
 function add(num1, num2) {
     return num1 + num2;
@@ -23,13 +24,13 @@ function divide(num1, num2) {
 
 function operate(operator, num1, num2) {
     if (operator == "+") {
-        add(num1, num2);
+        return add(num1, num2);
     } else if (operator == "-") {
-        subtract(num1, num2);
+        return subtract(num1, num2);
     } else if (operator == "*") {
-        multiply(num1, num2)
+        return multiply(num1, num2)
     } else if (operator == "/") {
-        divide(num1, num2)
+        return divide(num1, num2)
     }
 }
 
@@ -55,9 +56,14 @@ operatorButton.forEach(button => {
             if (displayNum2 !== "") {
                 displayNum1 = operate(displayOperator, displayNum1, displayNum2);
                 displayNum2 = "";
+                result.textContent = displayNum1;
             }
             displayOperator = clickedOperator;
         }
     })
 })
+
+
+
+
 
