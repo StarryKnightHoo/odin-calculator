@@ -10,20 +10,20 @@ const clear = document.querySelector(".clear");
 const button = document.querySelectorAll(".button");
 
 function add(num1, num2) {
-    return Number(num1) + Number(num2);
+    return Math.round((Number(num1) + Number(num2)) * 100000) / 100000;
 }
 
 function subtract(num1, num2) {
-    return Number(num1) - Number(num2);
+    return Math.round((Number(num1) - Number(num2)) * 100000) / 100000;
 }
 
 function multiply(num1, num2) {
-    return Number(num1) * Number(num2);
+    return Math.round((Number(num1) * Number(num2)) * 100000 ) / 100000;
 }
 
 function divide(num1, num2) {
     if (num2 != 0) {
-        return Number(num1) / Number(num2);
+        return Math.round((Number(num1) / Number(num2)) * 100000) / 100000;
     } else {
         alert("Don't Do That!");
         return 0;
