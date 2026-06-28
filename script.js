@@ -170,5 +170,51 @@ del.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("keydown", (e) => {
+    if (e.key >= 0 && e.key <= 9) {
+        numberButton.forEach(button => {
+            if (button.textContent === e.key) {
+                button.click();
+            }
+        })
+    }
+
+    if (e.key === "+" || e.key === "-") {
+        operatorButton.forEach(button => {
+            if (button.textContent === e.key) button.click();
+        });
+    }
+
+    if (e.key === "*") {
+        operatorButton.forEach(button => {
+            if (button.textContent === "×" || button.textContent === "*") button.click();
+        });
+    }
+
+    if (e.key === "/") {
+        operatorButton.forEach(button => {
+            if (button.textContent === "/" || button.textContent === "÷") button.click();
+        });
+    }
+
+    if (e.key === "Enter" || e.key === "=") {
+        e.preventDefault();
+        equals.click();
+    }
+
+    if (e.key === "Backspace") {
+        del.click();
+    }
+
+    if (e.key === "Escape") {
+        clear.click;
+    }
+
+    if (e.key === ".") {
+        decimal.click();
+    }
+
+
+})
 
 
