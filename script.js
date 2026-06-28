@@ -134,7 +134,9 @@ del.addEventListener("click", () => {
     if (displayOperator == "") {
         displayNum1 = displayNum1.slice(0, -1);
         result.textContent = displayNum1;
-    } else {
+    } else if (displayOperator != "" && displayNum2 == "") {
+        displayOperator = "";
+    } else if (displayOperator != "") {
         displayNum2 = displayNum2.slice(0, -1);
         result.textContent = displayNum2;
     }
