@@ -6,6 +6,8 @@ const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
 const result = document.querySelector(".result");
 const equals = document.querySelector(".equals");
+const clear = document.querySelector(".clear");
+const button = document.querySelectorAll(".button");
 
 function add(num1, num2) {
     return Number(num1) + Number(num2);
@@ -35,8 +37,22 @@ function operate(operator, num1, num2) {
     }
 }
 
+button.forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.add("clicked");
+
+        setTimeout(() => {
+            item.classList.remove("clicked");
+        }, 100);
+    })
+})
+
 numberButton.forEach(button => {
     button.addEventListener("click", () => {
+        if (shouldReset) {
+            displayNum1 = "";
+            shouldReset = false;
+        }
         const clickedNumber = button.textContent;
         if (displayOperator == "") {
             displayNum1 = displayNum1 + clickedNumber;
@@ -54,10 +70,7 @@ numberButton.forEach(button => {
 operatorButton.forEach(button => {
     button.addEventListener("click", () => {
         const clickedOperator = button.textContent;
-        if (shouldReset) {
-            displayNum1 = "";
-            shouldReset = false;
-        }
+        shouldReset = false;
         
         if (displayOperator == "") {
             displayOperator = clickedOperator;
@@ -76,11 +89,19 @@ equals.addEventListener("click", () => {
     if (displayNum2 !== "") {
         displayNum1 = operate(displayOperator, displayNum1, displayNum2);
         displayNum2 = "";
+        displayOperator = "";
         result.textContent = displayNum1;
         shouldReset = true;
     }
 });
 
+clear.addEventListener("click", () => {
+    displayNum1 = "";
+    displayNum2 = "";
+    displayOperator = "";
+    shouldReset = false;
+    result.textContent = displayNum1;
+})
 
 
 
