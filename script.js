@@ -12,18 +12,46 @@ const decimal = document.querySelector(".decimal");
 const del = document.querySelector(".delete");
 
 function add(num1, num2) {
+    if (num1 == ".") {
+        num1 = 0;
+    }
+
+    if (num2 == ".") {
+        num2 = 0;
+    }
     return Math.round((Number(num1) + Number(num2)) * 100000) / 100000;
 }
 
 function subtract(num1, num2) {
+    if (num1 == ".") {
+        num1 = 0;
+    }
+
+    if (num2 == ".") {
+        num2 = 0;
+    }
     return Math.round((Number(num1) - Number(num2)) * 100000) / 100000;
 }
 
 function multiply(num1, num2) {
+    if (num1 == ".") {
+        num1 = 0;
+    }
+
+    if (num2 == ".") {
+        num2 = 0;
+    }
     return Math.round((Number(num1) * Number(num2)) * 100000 ) / 100000;
 }
 
 function divide(num1, num2) {
+    if (num1 == ".") {
+        num1 = 0;
+    }
+
+    if (num2 == ".") {
+        num2 = 0;
+    }
     if (num2 != 0) {
         return Math.round((Number(num1) / Number(num2)) * 100000) / 100000;
     } else {
