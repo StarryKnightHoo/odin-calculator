@@ -8,6 +8,7 @@ const result = document.querySelector(".result");
 const equals = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
 const button = document.querySelectorAll(".button");
+const decimal = document.querySelector(".decimal");
 
 function add(num1, num2) {
     return Math.round((Number(num1) + Number(num2)) * 100000) / 100000;
@@ -107,6 +108,25 @@ clear.addEventListener("click", () => {
     displayOperator = "";
     shouldReset = false;
     result.textContent = displayNum1;
+})
+
+decimal.addEventListener("click", () => {
+    if (shouldReset) {
+            displayNum1 = "";
+            shouldReset = false;
+        }
+
+    if (displayOperator == "") {
+        if (!displayNum1.includes(".")) {
+            displayNum1 = displayNum1 + ".";
+            result.textContent = displayNum1;
+        }
+    } else {
+        if (!displayNum2.includes(".")) {
+            displayNum2 = displayNum2 + ".";
+            result.textContent = displayNum2;
+        }
+    }
 })
 
 
