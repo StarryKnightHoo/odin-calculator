@@ -1,6 +1,7 @@
 let displayNum1 = "";
 let displayNum2 = "";
 let displayOperator = "";
+let shouldReset = false;
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
 const result = document.querySelector(".result");
@@ -44,12 +45,20 @@ numberButton.forEach(button => {
             displayNum2 = displayNum2 + clickedNumber;
             result.textContent = displayNum2;
         }
+
+
+
     })
 })
 
 operatorButton.forEach(button => {
     button.addEventListener("click", () => {
         const clickedOperator = button.textContent;
+        if (shouldReset) {
+            displayNum1 = "";
+            shouldReset = false;
+        }
+        
         if (displayOperator == "") {
             displayOperator = clickedOperator;
         } else {
@@ -64,9 +73,12 @@ operatorButton.forEach(button => {
 })
 
 equals.addEventListener("click", () => {
-    displayNum1 = operate(displayOperator, displayNum1, displayNum2);
-    displayNum2 = "";
-    result.textContent = displayNum1;
+    if (displayNum2 !== "") {
+        displayNum1 = operate(displayOperator, displayNum1, displayNum2);
+        displayNum2 = "";
+        result.textContent = displayNum1;
+        shouldReset = true;
+    }
 });
 
 
